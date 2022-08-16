@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Animal
   - CanonBall
+  - Water
+  - Stop
   layers:
   - Default
   - TransparentFX

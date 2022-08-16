@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Canon : MonoBehaviour
 {
+    //Script-------
+    JoystickPlayerExample joystickPlayerExample;
+    //-------------
+
     [SerializeField] float blust_power;
     [SerializeField] GameObject canon_ball;
     [SerializeField] Transform shoot_point;
@@ -14,7 +18,7 @@ public class Canon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        joystickPlayerExample = GameObject.Find("Dio").GetComponent<JoystickPlayerExample>();
     }
 
     // Update is called once per frame
@@ -24,7 +28,7 @@ public class Canon : MonoBehaviour
 
         float distance = Target.position.z - shoot_point.position.z;
 
-        if (isFire == true && Mathf.Abs(distance) < 20f)
+        if (isFire == true && Mathf.Abs(distance) < 20f && joystickPlayerExample.death == false) //If player death not fire cannonball and if isfire is true
         {
             isFire = false;
             StartCoroutine(Fire());
@@ -35,10 +39,13 @@ public class Canon : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        isFire = true;
+        if (joystickPlayerExample.death == false) //If player death not fire cannonball
+        {
+            isFire = true;
 
-        GameObject CreatedCannonball = Instantiate(canon_ball, shoot_point.position, shoot_point.rotation);
-        CreatedCannonball.GetComponent<Rigidbody>().velocity = shoot_point.transform.up * blust_power;
+            GameObject CreatedCannonball = Instantiate(canon_ball, shoot_point.position, shoot_point.rotation);
+            CreatedCannonball.GetComponent<Rigidbody>().velocity = shoot_point.transform.up * blust_power;
+        }
     }
 
 }//CLASS
