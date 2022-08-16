@@ -1170,6 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 9203113044846350600}
+  death: 0
   dio_speed: 4
 --- !u!65 &836152874
 BoxCollider:
