@@ -780,6 +780,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &444562326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1725502765940045657, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+  m_PrefabInstance: {fileID: 1445383230030645642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &444562327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+  m_PrefabInstance: {fileID: 1445383230030645642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &470248756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1305,7 @@ Transform:
   m_Children:
   - {fileID: 9150318796641427592}
   - {fileID: 963194228}
+  - {fileID: 444562327}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1344,6 +1355,7 @@ MonoBehaviour:
   speed: 2
   floatingJoystick: {fileID: 1447051731}
   rb: {fileID: 836152875}
+  WaterSplashPS: {fileID: 444562326}
   DioMesh:
   - {fileID: 9145134666679708980}
   - {fileID: 9145480490981190226}
@@ -4013,6 +4025,63 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &1445383230030645642
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 836152872}
+    m_Modifications:
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045654, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725502765940045657, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
+      propertyPath: m_Name
+      value: Water Splash  PS
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 140782ca0392e4e8ab751741663394f4, type: 3}
 --- !u!33 &1524608120674795937
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public class JoystickPlayerExample : MonoBehaviour
     public FloatingJoystick floatingJoystick; //DIo FloationJoystic
     public Rigidbody rb; //DIo rigidbody
 
+    [SerializeField] GameObject WaterSplashPS; //Water Splash Partical System
+
 
     [SerializeField] GameObject[] DioMesh; //Dio mesh
 
@@ -34,6 +36,8 @@ public class JoystickPlayerExample : MonoBehaviour
 
             DioMesh[0].SetActive(false);
             DioMesh[1].SetActive(false);
+
+            WaterSplashPS.SetActive(true); //Water Splash
         }
     }
 
