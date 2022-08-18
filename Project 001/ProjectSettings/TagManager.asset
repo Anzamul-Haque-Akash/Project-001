@@ -8,6 +8,7 @@ TagManager:
   - CanonBall
   - Water
   - Stop
+  - Attacking Area
   layers:
   - Default
   - TransparentFX

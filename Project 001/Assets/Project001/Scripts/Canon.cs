@@ -28,7 +28,7 @@ public class Canon : MonoBehaviour
 
         float distance = Target.position.z - shoot_point.position.z;
 
-        if (isFire == true && Mathf.Abs(distance) < 20f && joystickPlayerExample.death == false) //If player death not fire cannonball and if isfire is true
+        if (isFire == true && Mathf.Abs(distance) < 10f && joystickPlayerExample.death == false) //If player death not fire cannonball and if isfire is true
         {
             isFire = false;
             StartCoroutine(Fire());
@@ -37,7 +37,7 @@ public class Canon : MonoBehaviour
 
     IEnumerator Fire()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
 
         if (joystickPlayerExample.death == false) //If player death not fire cannonball
         {

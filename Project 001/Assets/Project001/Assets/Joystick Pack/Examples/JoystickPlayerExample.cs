@@ -7,6 +7,7 @@ public class JoystickPlayerExample : MonoBehaviour
     [SerializeField] Animator anim; //Dio Animator
 
     public bool death = false; //Dio Death or not
+    public bool attacking = true; //Dio attacking or not
 
     public float speed; //Dio Speed
     public FloatingJoystick floatingJoystick; //DIo FloationJoystic
@@ -14,6 +15,7 @@ public class JoystickPlayerExample : MonoBehaviour
 
     [SerializeField] GameObject WaterSplashPS; //Water Splash Partical System
 
+    [SerializeField] GameObject AttackStartPosition; // Dragon attack start position
 
     [SerializeField] GameObject[] DioMesh; //Dio mesh
 
@@ -21,16 +23,12 @@ public class JoystickPlayerExample : MonoBehaviour
     {
         if (other.gameObject.tag == "CanonBall")
         {
-            Debug.Log("Player Death!!");
-
             Destroy(other.gameObject); //Destroy Hit Cannonball
 
             death = true;
         }
         if(other.gameObject.tag == "Stop") //Player stop in water
         {
-            Debug.Log("Player Stop!!");
-
             rb.useGravity = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
 
@@ -40,6 +38,21 @@ public class JoystickPlayerExample : MonoBehaviour
             WaterSplashPS.SetActive(true); //Water Splash
         }
     }
+
+    private void OnTriggerStay(Collider other) //On trigger stay function
+    {
+        if (other.gameObject.tag == "Attacking Area") //Ship Attacking area
+        {
+            Debug.Log("Dio in attacking area.");
+
+            if (attacking == true)
+            {
+                attacking = false;
+                StartCoroutine(Wait(1f));
+            }
+        }
+    }
+
 
     public void FixedUpdate()
     {
@@ -70,4 +83,20 @@ public class JoystickPlayerExample : MonoBehaviour
             rb.constraints = RigidbodyConstraints.None;
         }
     }
+
+
+    IEnumerator Wait(float t) //Unity Wait for N second function | Dio get attacking
+    {
+        AttackStartPosition.SetActive(true);
+
+        yield return new WaitForSeconds(t);
+
+        AttackStartPosition.SetActive(false);
+
+        yield return new WaitForSeconds(2f);
+
+        attacking = true;
+    }
+
+
 }//CLASS
