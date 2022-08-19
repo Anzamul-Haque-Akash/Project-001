@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
+
+    //script--------
+    GameManager gameManager;
+    //--------------
+
     Rigidbody m_Rigidbody; //Ship RB
     float m_Speed; //Ship Speed
 
@@ -13,6 +18,9 @@ public class ShipController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         //Fetch the Rigidbody component you attach from your GameObject
         m_Rigidbody = GetComponent<Rigidbody>();
         //Set the speed of the GameObject
@@ -37,6 +45,7 @@ public class ShipController : MonoBehaviour
         if(shipHealth == -1)
         {
             Debug.Log("Ship distroy");
+            gameManager.EndGame(); //End Game scene
         }
     }
 }//CLASS

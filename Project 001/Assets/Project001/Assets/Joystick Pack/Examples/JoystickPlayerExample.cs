@@ -7,6 +7,7 @@ public class JoystickPlayerExample : MonoBehaviour
 
     //Scrip-----------------------
     ShipController shipController;
+    GameManager gameManager;
     //----------------------------
 
     [SerializeField] Animator anim; //Dio Animator
@@ -28,6 +29,7 @@ public class JoystickPlayerExample : MonoBehaviour
     private void Start()
     {
         shipController = GameObject.Find("Ship").GetComponent<ShipController>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other) //On trigger enter function
@@ -92,6 +94,8 @@ public class JoystickPlayerExample : MonoBehaviour
 
             rb.useGravity = true;
             rb.constraints = RigidbodyConstraints.None;
+
+            StartCoroutine(GameOver()); //Game Over
         }
     }
 
@@ -109,6 +113,12 @@ public class JoystickPlayerExample : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         attacking = true;
+    }
+    IEnumerator GameOver() //$ seceond with for game over
+    {
+        yield return new WaitForSeconds(4);
+
+        gameManager.EndGame(); //End Game scene
     }
 
 
