@@ -7,6 +7,9 @@ public class ShipController : MonoBehaviour
     Rigidbody m_Rigidbody; //Ship RB
     float m_Speed; //Ship Speed
 
+    int shipHealth = 10;
+    [SerializeField] GameObject[] shipHealthUI; //Ship Health
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +23,20 @@ public class ShipController : MonoBehaviour
     void Update()
     {
         m_Rigidbody.velocity = transform.forward * m_Speed; //Ship Move
+    }
+
+    public void reduceShieHeath() //reduce ship heath by Dio Attack
+    {
+        if(shipHealth >= 0)
+        {
+            shipHealthUI[shipHealth].SetActive(false);
+        }
+
+        shipHealth--;
+
+        if(shipHealth == -1)
+        {
+            Debug.Log("Ship distroy");
+        }
     }
 }//CLASS

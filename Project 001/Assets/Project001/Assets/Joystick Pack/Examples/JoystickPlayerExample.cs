@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class JoystickPlayerExample : MonoBehaviour
 {
+
+    //Scrip-----------------------
+    ShipController shipController;
+    //----------------------------
+
     [SerializeField] Animator anim; //Dio Animator
 
     public bool death = false; //Dio Death or not
@@ -18,6 +23,12 @@ public class JoystickPlayerExample : MonoBehaviour
     [SerializeField] GameObject AttackStartPosition; // Dragon attack start position
 
     [SerializeField] GameObject[] DioMesh; //Dio mesh
+
+    //Start Function
+    private void Start()
+    {
+        shipController = GameObject.Find("Ship").GetComponent<ShipController>();
+    }
 
     private void OnTriggerEnter(Collider other) //On trigger enter function
     {
@@ -90,6 +101,8 @@ public class JoystickPlayerExample : MonoBehaviour
         AttackStartPosition.SetActive(true);
 
         yield return new WaitForSeconds(t);
+
+        shipController.reduceShieHeath(); //Ship health reduce
 
         AttackStartPosition.SetActive(false);
 
