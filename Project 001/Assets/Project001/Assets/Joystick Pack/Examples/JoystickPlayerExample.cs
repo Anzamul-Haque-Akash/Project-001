@@ -11,6 +11,7 @@ public class JoystickPlayerExample : MonoBehaviour
     //----------------------------
 
     [SerializeField] Animator anim; //Dio Animator
+    [SerializeField] GameObject dioCollider; //dio Collider
 
     public bool death = false; //Dio Death or not
     public bool attacking = true; //Dio attacking or not
@@ -38,7 +39,8 @@ public class JoystickPlayerExample : MonoBehaviour
         {
             Destroy(other.gameObject); //Destroy Hit Cannonball
 
-            death = true;
+            death = true; //Dio Death true
+            dioCollider.SetActive(false); // collider false
         }
         if(other.gameObject.tag == "Stop") //Player stop in water
         {
@@ -73,7 +75,7 @@ public class JoystickPlayerExample : MonoBehaviour
         {
             if (floatingJoystick.Vertical != 0 || floatingJoystick.Horizontal != 0) //Fly animation
             {
-                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = ~RigidbodyConstraints.FreezePosition;
 
                 Vector3 direction = Vector3.forward * floatingJoystick.Vertical + Vector3.right * floatingJoystick.Horizontal;
                 rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
@@ -82,7 +84,7 @@ public class JoystickPlayerExample : MonoBehaviour
             }
             else //Idle Animation
             {
-                rb.constraints = RigidbodyConstraints.FreezeAll;
+                rb.constraints = RigidbodyConstraints.FreezePosition;
 
                 anim.SetBool("isIdle", true);
             }
